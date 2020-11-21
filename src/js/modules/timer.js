@@ -5,10 +5,9 @@ function getZero(num) {
   return num;
 }
 
-function timer() {
+function timer(id, deadLine) {
   //timer
 
-  const deadLine = '2020-11-28';
   function getTimeRemaining(endtime) {
     const t = Date.parse(endtime) - Date.parse(new Date()),
           days = Math.floor(t / (1000 * 60 * 60 * 24)),
@@ -52,7 +51,7 @@ function timer() {
     }
 
   }
-  setClock('.timer', deadLine);
+  setClock(id, deadLine);
 }
 
 export default timer;

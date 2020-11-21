@@ -1,13 +1,14 @@
 
-// import {usdToUah} from './current';
+import {getResurse} from '../services/services';
 
 function cards() {
   // use CLASSES
   
-  axios.get('http://localhost:3000/menu')
+  getResurse('http://localhost:3000/menu')
     .then(data => {
-      data.data.forEach(({img, alt, title, descr, price}) => 
-        new MenuCard(img, alt, title, descr, price, '.menu .container').render());
+      data.forEach(({img, alt, title, descr, price}) => {
+        new MenuCard(img, alt, title, descr, price, '.menu .container').render()
+      });
     });
 
   class MenuCard {
@@ -25,7 +26,7 @@ function cards() {
     }
 
     changeToUAH() {
-      this.priceTransfer = (this.price * this.transfer).toFixed(1);
+      this.priceTransfer = (this.price * this.transfer).toFixed(0);
     }
 
     render() {
